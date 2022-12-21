@@ -19,6 +19,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<label for="email" class="pr-1 align-self-end ">Amount:</label>
 					<input type="text" class="form-control" id="amount" placeholder="Enter amount" name="amount" value="<?php if(isset($amount)){ echo $amount;}?>">
 
+					<input type="hidden" name="id" value="<?php if(isset($id)){ echo $id;}?>">
+
 				</div>
 			</div>
 		</div>
@@ -27,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="col text-center">
 			<span asp-validation-for="Code" class="text-danger "><?php 
 			    echo validation_errors();
-			if(isset($exception_error)){
+			if(isset($exception_error) &&  validation_errors() == ""){
 			     echo "<p>". $exception_error."</p>";
 			}
 			 ?></span>

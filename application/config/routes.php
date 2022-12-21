@@ -51,5 +51,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'xdreampay';
 $route['pay'] = 'xdreampay/pay';
+$route['success'] = 'xdreampay/success';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
