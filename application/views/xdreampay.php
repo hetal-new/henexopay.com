@@ -10,18 +10,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 
-<div class="container">
-	<h2>xDreamPay</h2>
-
+<div class="container mt-3">
+	<h2 class="text-center">xDreamPay</h2>
 	<form action="<?= base_url('/pay') ?>" method="post" class="">
-		<div class="input-group pr-3 w-25 mb-1">
-			<label for="email" class="pr-1">Amount:</label>
-			<input type="text" class="form-control" id="amount" placeholder="Enter amount" name="amount">
+		<div class="form-row  justify-content-center">
+			<div class="form-group col-md-3 mb-2">
+				<div class="input-group pr-3">
+					<label for="email" class="pr-1 align-self-end ">Amount:</label>
+					<input type="text" class="form-control" id="amount" placeholder="Enter amount" name="amount">
 
+				</div>
+			</div>
 		</div>
-		<span asp-validation-for="Code" class="text-danger "><?php echo validation_errors(); ?></span>
-		<button type="submit" class="btn btn-primary">Submit</button>
+
+
+		<div class="col text-center">
+			<span asp-validation-for="Code" class="text-danger "><?php echo validation_errors(); ?></span>
+	        <button type="submit" class="btn btn-primary">Submit</button>
+		</div>
+
 	</form>
+
 </div>
 
 </body>
