@@ -32,17 +32,28 @@ class Xdreampay extends CI_Controller {
 			$this->db->insert('transactions',$payload);
 			$id = $this->db->insert_id();
 			if($id > 0){
-				$payload['txnid']=time()."_".$id;
+				$payload['txnid']=time().$id;
 				$response = $this->curlRequest("https://partner.xdreampay.com/api/create_order",$payload);
-                if(!empty($response) && $response['txnid'] != ""){
-					$this->db->where("id",$id)->update('transactions',array("txnid"=>$payload['txnid'],"status"=>"Completed"));
-					redirect("https://partner.xdreampay.com/api/redirect?txnid=".$response['txnid']);
+			
+                if(!empty($response)){
+                    $arrResponse = json_decode($response,true);
+                    if($arrResponse['status'] == 'ERROR')
+                    throw new Exception($arrResponse['msg']);
+                    
+                    if($arrResponse['status'] == 'INITIATE'){
+                        	$this->db->where("id",$id)->update('transactions',array("txnid"=>$arrResponse['txnid'],"status"=>"Completed"));
+					        redirect("https://partner.xdreampay.com/api/redirect?txnid=".$arrResponse['txnid']);
+                    }
+				
 				}
 			}
 
 
 		}catch (\Exception $e){
-			$this->load->view('xdreampay');
+		    $data=array();
+		    $data['exception_error'] = $e->getMessage();
+		    $data['amount'] = $this->input->post("amount");
+			$this->load->view('xdreampay',$data);
 		}
 		//$this->load->view('xdreampay');
 	}
