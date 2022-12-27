@@ -84,10 +84,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="card">
 			<div class="card-body">
 				<h3 class="mb-0 pb-0">Payment transaction completed successfully.</h3>
-				<h6 class="mb-4">Please check your transaction details</h6>
-				<?php echo '<pre>';
-				print_r($_REQUEST);
-				?>
 			</div>
 		</div>
 	</div>
