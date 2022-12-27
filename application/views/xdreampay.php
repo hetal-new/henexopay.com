@@ -85,7 +85,7 @@
 	<div class="xpay-container">
 		<div class="card">
 			<div class="card-body">
-				<h3 class="mb-0 pb-0">Welcome to <strong>Henexopay</strong></h3>
+				<!--<h3 class="mb-0 pb-0">Welcome to <strong>Henexopay</strong></h3>-->
 				<h6 class="mb-4">Please Enter your Deposit / Refill Amount</h6>
 		     <form action="<?= base_url('/pay') ?>" method="post" class="">
 			<div class="form-row  justify-content-center">

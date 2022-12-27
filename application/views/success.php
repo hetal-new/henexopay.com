@@ -83,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="xpay-container">
 		<div class="card">
 			<div class="card-body">
-				<h3 class="mb-0 pb-0">Payment transaction completed successfully.</h3>
+				<h3 class="mb-0 pb-2">Payment transaction completed successfully.</h3>
 			</div>
 		</div>
 	</div>
