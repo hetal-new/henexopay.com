@@ -27,7 +27,7 @@ class Xdreampay extends CI_Controller {
 			$payload['amount']=$amount;
 
 			$payload['return_url']= base_url('success');
-			$payload['api_token']="kipteryry564646d4f6d4f64sdf64f6d4f89768hjjkhjksdf76876jkh983";
+			$payload['api_token']="kipteryry564646d4f6d4f64sdf64f6d4f89768hjjkhjksdf76876jkh98";
 
 			if(!$this->input->post("id")){
 				$this->db->insert('transactions',$payload);
